@@ -1,0 +1,965 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+/* nav bar */
+
+nav {
+    border-radius: 5px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("img/land.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    background-attachment: fixed;
+
+
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
+}
+
+nav img {
+    width: 120px;
+    height: auto;
+}
+
+nav::before {
+    position: absolute;
+    top: 30;
+    left: 30;
+    right: 30;
+    bottom: 30;
+    background-color: rgb(0, 0, 0.5);
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    margin: 0 auto;
+    /* THE MAGIC: This centers the links perfectly */
+    padding: 40px 0;
+}
+
+/* Styling the Login/Signup Buttons */
+.auth-btn {
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    transition: 0.3s ease;
+}
+
+.login-link {
+    color: white;
+    border: 1px solid transparent;
+    padding: 8px 15px;
+}
+
+.login-link:hover {
+    color: #f9d067;
+}
+
+.signup-btn {
+    background-color: #39c148;
+    color: white !important;
+    padding: 10px 20px;
+    border-radius: 25px;
+    box-shadow: 0 4px 10px rgba(57, 193, 72, 0.2);
+}
+
+.signup-btn:hover {
+    background-color: #2f9c39;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(57, 193, 72, 0.4);
+}
+
+/* search */
+.search-section {
+    text-align: center;
+    margin: 30px 0;
+    position: relative;
+    /* for suggestions */
+}
+
+#searchInput {
+    padding: 10px;
+    width: 250px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 10px 15px;
+    background: #39c148;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #2f9c39;
+}
+
+/* New CSS for suggestions dropdown */
+.suggestions-list {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 250px;
+    background: #fff;
+    border: 1px solid #39c148;
+    max-height: 200px;
+    overflow-y: auto;
+    border-radius: 0 0 5px 5px;
+    z-index: 1000;
+}
+
+.suggestion-item {
+    padding: 8px 12px;
+    cursor: pointer;
+    text-align: left;
+}
+
+.suggestion-item:hover {
+    background-color: #e0f7e0;
+}
+
+
+.bg {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    width: 100%;
+}
+
+.bottomnav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+
+.bg h6 {
+    color: #000;
+    padding-left: 15px;
+}
+
+.bottomnav ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 50px;
+    margin-left: 170px;
+    padding: 40px 0;
+}
+
+li {
+    list-style: none;
+}
+
+.bottomnav a {
+    text-decoration: none;
+    gap: 50px;
+    color: rgb(255, 244, 244);
+}
+
+.bottomnav a:hover {
+    color: rgb(249, 208, 103);
+}
+
+.text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.text a {
+    text-decoration: none;
+    color: white;
+}
+
+.text h1 {
+    padding-top: 90px;
+    font-size: 50px;
+    color: #fff;
+}
+
+.text h4 {
+    padding-top: 10px;
+    padding-bottom: 15px;
+    font-size: 20px;
+    color: #fff;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.btn {
+    padding: 15px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+/* Green for buying/growth */
+.shop-btn {
+    background-color: #39c148;
+    color: white;
+}
+
+/* A clear outline or gold for the partner path */
+.sell-btn {
+    background-color: transparent;
+    border: 2px solid #f9d067;
+    color: #f9d067;
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.dropbtn {
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 140px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.tips-carousel {
+    background: #f0f9f0;
+    padding: 30px;
+    border-radius: 12px;
+    margin: 40px auto;
+    max-width: 900px;
+    text-align: center;
+}
+
+.carousel-container {
+    display: flex;
+    margin-top: 40px;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+}
+
+.tip {
+    min-width: 250px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    scroll-snap-align: start;
+}
+
+/* thatfoolish thing */
+
+.stats-section {
+    background: linear-gradient(135deg, #e0f8e0, #d4f0d4);
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.stats-container {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.stat-card {
+    background: #fff;
+    padding: 30px 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    width: 220px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.stat-icon {
+    font-size: 50px;
+    margin-bottom: 15px;
+    background: radial-gradient(circle, #4ef05c 0%, #39c148 100%);
+    color: #fff;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    animation: love 2s infinite;
+}
+
+@keyframes love {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.stat-card h2 {
+    font-size: 48px;
+    font-weight: 900;
+    color: #39c148;
+    margin-bottom: 10px;
+    transition: 0.3s;
+}
+
+.stat-card p {
+    font-size: 18px;
+    color: #333;
+    font-weight: 500;
+}
+
+
+/* SECTION 2 */
+.sect2 {
+    padding: 70px 40px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.65),
+            rgba(0, 0, 0, 0.65)), url("img/sharoni.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 8px;
+}
+
+/* Heading */
+.sect2 h1 {
+    text-align: center;
+    margin-bottom: 50px;
+
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
+}
+
+.sect2 h1 a {
+    text-decoration: none;
+    color: #4ef05c;
+    font-size: 45px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    transition: 0.3s ease;
+
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
+}
+
+.sect2 h1 a:hover {
+    color: #39c148;
+}
+
+/* Content area with image ON RIGHT */
+.sect2-content {
+    display: flex;
+    flex-direction: row-reverse;
+    /* 👈 Image always on right */
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* Image styling */
+.sect2-content img {
+    width: 450px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.4);
+    transition: 0.4s ease;
+}
+
+.sect2-content img:hover {
+    transform: scale(1.03);
+}
+
+/* Text styling */
+.sect2-content p {
+    font-size: 22px;
+    line-height: 1.7;
+    color: #f4f4f4;
+    font-weight: 300;
+}
+
+.sect2-content p a {
+    color: #4ef05c;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.sect2-content p a:hover {
+    color: #34b843;
+}
+
+
+/* section3 */
+
+.sect3 {
+    background-color: rgb(255, 255, 255);
+    padding-top: 50px;
+    margin-top: 0px;
+    border-radius: 5px;
+    padding-bottom: 50px;
+
+}
+
+.sect3 h1 {
+    text-align: center;
+    margin-bottom: 50px;
+
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
+}
+
+.sect3 h1 a {
+    text-decoration: none;
+    color: #39c148;
+    font-size: 45px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    transition: 0.3s ease;
+
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
+}
+
+.sect3 h1 a:hover {
+    color: #4ef05c;
+}
+
+.cart img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 7px;
+}
+
+.cart {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 50px;
+    padding-right: 90px;
+    padding-left: 90px;
+}
+
+.secct {
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.secct:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+/* seciton4 */
+
+.sect4 {
+    margin-top: 30px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/img/blahhhh.jpg);
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding: 40px 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 50px;
+}
+
+.sect4 h1 {
+    color: #39c148;
+    font-weight: 800;
+    font-size: 32px;
+    margin-bottom: 20px;
+    font-family: "Roboto", sans-serif;
+
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
+}
+
+.unique-container {
+    display: flex;
+    align-items: center;
+    gap: 100px;
+    padding-left: 100px;
+}
+
+
+.unique-image img {
+    width: 350px;
+    height: auto;
+    border-radius: 10px;
+    border: 4px solid #ddd;
+}
+
+.unique-text {
+    background: white;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+}
+
+.unique-text ul {
+    list-style: none;
+    padding: 0;
+}
+
+.unique-text ul li {
+    margin-bottom: 15px;
+    position: relative;
+    line-height: 2.0;
+    font-size: 18px;
+    padding-left: 25px;
+}
+
+/* section whateverrrrr */
+
+.gallery-section {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.gallery-section h1 {
+    color: #39c148;
+    font-weight: bolder;
+    font-size: 300%;
+    padding-left: 50px;
+    padding-top: 7px;
+    margin-bottom: 35px;
+
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
+}
+
+
+.gallery-section ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 200px;
+    gap: 20px;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.gallery-section ul li img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 8px;
+}
+
+/* 2nd image slightly larger */
+.gallery-section ul li:nth-child(2) img {
+    transform: scaleX(1.2);
+    padding-left: 30px;
+}
+
+.gallery-section ul li {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.gallery-section ul li img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+/* Image zoom and dark overlay on hover */
+.gallery-section ul li:hover img {
+    transform: scale(1.05);
+    filter: brightness(0.5);
+}
+
+/* Overlay content */
+.gallery-section ul li::after {
+    content: "View";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-weight: 600;
+    font-size: 1rem;
+    opacity: 0;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    pointer-events: none;
+}
+
+.gallery-section ul li:hover::after {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+
+/* section 5 */
+
+.sect5 {
+    margin-top: 30px;
+    background-color: whitesmoke;
+    border-radius: 5px;
+}
+
+.sect5 h1 {
+    color: #39c148;
+    font-weight: bolder;
+    font-size: 300%;
+    padding-left: 350px;
+    padding-top: 70px;
+    margin-bottom: 40px;
+
+
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
+}
+
+.sect5 h3 {
+    padding-left: 50px;
+    padding-bottom: 50px;
+    font-weight: 100;
+}
+
+.sect5 h3 strong {
+    color: goldenrod;
+}
+
+/* Footer*/
+.footer {
+    background: #282828;
+    color: #fff;
+    padding: 50px 20px 20px;
+    font-family: "Roboto", sans-serif;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+    text-align: center;
+}
+
+.footer-logo img {
+    width: 130px;
+    margin-bottom: 10px;
+}
+
+.footer-logo p {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* Footer Links */
+
+.footer-links {
+    text-align: left;
+}
+
+.footer-links h3,
+.footer-contact h3 {
+    margin-bottom: 10px;
+    color: #76c043;
+    /* Your green accent */
+}
+
+.footer-links a {
+    display: block;
+    color: #ccc;
+    margin: 5px 0;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-links a:hover {
+    color: #76c043;
+}
+
+/* Contact Section */
+
+.footer-contact p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.footer-contact i {
+    color: #76c043;
+    margin-right: 5px;
+}
+
+/* Social Media */
+.footer-social {
+    margin-top: 10px;
+}
+
+.footer-social a {
+    color: white;
+    margin: 0 8px;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.footer-social a:hover {
+    color: #76c043;
+}
+
+/* Bottom */
+.footer-bottom {
+    border-top: 1px solid #939191;
+    margin-top: 30px;
+    padding-top: 15px;
+    font-size: 13px;
+    opacity: 0.7;
+    padding-left: 400px;
+}
+
+/* feedback blah */
+.feedback-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #f9d067;
+    color: #333;
+    border-radius: 8px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.feedback-btn:hover {
+    background: #fbbd33;
+}
+
+
+.social-media {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-left: 150px;
+    margin-top: 12px;
+}
+
+.social-media a:hover {
+    color: rgb(249, 208, 103);
+}
+
+.social-media a {
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+/* Back to Top Button - Moved to the Left */
+#backToTop {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    /* Changed from right to left */
+    width: 50px;
+    height: 50px;
+    background-color: #39c148;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    /* JavaScript will show this on scroll */
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    font-size: 20px;
+    transition: all 0.3s ease;
+}
+
+#backToTop:hover {
+    background-color: #4ef05c;
+    transform: scale(1.1);
+}
+
+
+
+/* --- COMPETITION UPGRADE: RE-TRIGGERABLE ANIMATIONS --- */
+
+/* 1. Initial States (Hidden) */
+.hero-title {
+    opacity: 0;
+    transform: translateY(-30px);
+}
+
+.hero-sub {
+    opacity: 0;
+}
+
+.hero-btn {
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-50px);
+}
+
+.reveal-right {
+    opacity: 0;
+    transform: translateX(50px);
+}
+
+.reveal-jump {
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+/* 2. Active States (The Movement) */
+.hero-animate,
+.animate-active {
+    opacity: 1 !important;
+    transform: translate(0) scale(1) !important;
+    transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+/* 3. Product Cards Pop (1-2-3 Stagger) */
+.secct {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.5s ease-out;
+}
+
+.animate-active .secct {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.secct:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+.secct:nth-child(2) {
+    transition-delay: 0.25s;
+}
+
+.secct:nth-child(3) {
+    transition-delay: 0.4s;
+}
+
+/* 4. Back to Top Button */
+#backToTop {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: #39c148;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    font-size: 20px;
+}
+
+/* 5. Essential fix for slide animations */
+body {
+    overflow-x: hidden;
+}

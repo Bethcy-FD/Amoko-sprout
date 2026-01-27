@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amoko's Sprout</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="home.css">
+ 
+    <!-- robotofont -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- fontawesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script>
+        (function () { if (!window.chatbase || window.chatbase("getState") !== "initialized") { window.chatbase = (...arguments) => { if (!window.chatbase.q) { window.chatbase.q = [] } window.chatbase.q.push(arguments) }; window.chatbase = new Proxy(window.chatbase, { get(target, prop) { if (prop === "q") { return target.q } return (...args) => target(prop, ...args) } }) } const onLoad = function () { const script = document.createElement("script"); script.src = "https://www.chatbase.co/embed.min.js"; script.id = "vPyKjv51A-jIE8Ne5AePe"; script.domain = "www.chatbase.co"; document.body.appendChild(script) }; if (document.readyState === "complete") { onLoad() } else { window.addEventListener("load", onLoad) } })();
+    </script>
+
+</head>
+
+<body>
+    <nav>
+        <div class="bg">
+
+            <img src="/img/amokologo.png" alt="logo">
+
+            <div class="bottomnav">
+                <ul>
+                    <li><a href="main.html">Home</a></li>
+
+                    <div class="dropdown">
+                        <li class="dropbtn">About <i class="fa-solid fa-caret-down"></i></li>
+                        <div class="dropdown-content">
+                            <a href="aboutus.html">About Us</a>
+                            <a href="tips.html">Weed Control</a>
+                        </div>
+                    </div>
+
+                    <div class="dropdown">
+                        <li><a href="market.html">E-Market</a></li>
+                    </div>
+
+                    <div class="dropdown">
+                        <li class="dropbtn">How To <i class="fa-solid fa-caret-down"></i></a></li>
+                        <div class="dropdown-content">
+                            <a href="fufu.html">Cassava - Fufu</a>
+                            <a href="garri.html">Cassva - Garri</a>
+                            <a href="chips.html">Cassva - Chips</a>
+                            <a href="lafun.html">Cassava - Lafun</a>
+                            <a href="tapi.html">Cassva - Tapioca</a>
+                        </div>
+                    </div>
+                    <li><a href="gallery.html">Gallery</a></li>
+                </ul>   
+
+                <div class="nav-auth">
+                    <a href="login.html" class="auth-btn login-link">Login</a>
+                    <a href="signup.html" class="auth-btn signup-btn">Sign Up</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="text">
+            <h1>Welcome to Amoko's Sprout</h1>
+            <h4>Turning cassava and local produce into high-value opportunities through innovation and entrepreneurship.
+            </h4>
+        </div>
+        <div class="hero-buttons">
+            <a href="signup.html " class="btn shop-btn">Shop Products</a>
+
+            <a href="farmer.html" class="btn sell-btn">Join as a Farmer</a>
+        </div>
+    </nav>
+
+    <!-- SEARCH SECTION -->
+    <div class="search-section">
+        <input type="text" id="searchInput" placeholder="Search guides or products..." />
+        <button onclick="searchSite()">Search</button>
+
+        <!-- optional results display -->
+        <ul id="searchResults"></ul>
+    </div>
+
+
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-icon">🌱</div>
+                <h2>50+</h2>
+                <p>Farmers Supported</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📦</div>
+                <h2>1000+</h2>
+                <p>Kg Processed Monthly</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🏆</div>
+                <h2>5</h2>
+                <p>Awards Won</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">💼</div>
+                <h2>20+</h2>
+                <p>Partners & Collaborations</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="sect2">
+        <h1><a href="aboutus.html">About Amoko's Sprout</a></h1>
+
+        <div class="sect2-content">
+            <img src="img/about.jpg" alt="farmers">
+
+            <p>
+                At AMOKO'S SPROUT, we are passionate about adding value to cassava and other local produce.
+                We take pride in producing and supplying high-quality cassava-based products made from locally
+                grown roots, as well as helping reduce the drudgery involved in weeding cassava farms.
+                We educate and empower farmers to improve productivity and efficiency.
+                <a href="aboutus.html">See more.</a>
+            </p>
+        </div>
+    </section>
+
+    <section class="tips-carousel">
+        <h2>Quick Agricultural Tips</h2>
+        <div class="carousel-container">
+            <div class="tip">Rotate crops to improve soil fertility.</div>
+            <div class="tip">Use organic fertilizers to reduce costs.</div>
+            <div class="tip">Check cassava roots for pests before harvest.</div>
+        </div>
+    </section>
+
+    <section class="sect3 animate-active">
+        <h1> <a href="market.html">Our Products Overview</a></h1>
+
+        <div class="cart">
+            <article class="secct">
+                <img src="images/cassavaa.jpg" alt="" height="190px">
+                <p><strong>Fresh Cassava Tubers,</strong> naturally grown, high-yield, <br>and ideal for both domestic
+                    and industrial use.</p>
+            </article>
+
+            <article class="secct">
+                <img src="images/garriyellow.jpg" alt="" height="300px">
+                <p> <strong>Our Yellow Garri</strong> is enriched with natural palm oil <br>and roasted to perfection.
+                </p>
+            </article>
+
+            <article class="secct">
+                <img src="images/fufuraw.jpg" alt="" height="300px" width="300px">
+                <p> <strong>Our Local Semo Flour</strong> is a finely milled, fast-cooking cassava-based <br>swallow
+                    with a smooth consistency and firm texture.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="sect4">
+        <div class="unique-container">
+
+            <!-- lefting -->
+            <div class="unique-image">
+                <img src="/img/golddd.jpg" alt="Golden cassava product">
+            </div>
+
+            <!-- righttext -->
+            <div class="unique-text">
+
+                <h1>WHAT MAKES US UNIQUE?</h1>
+                <ul>
+                    <li><i class="fa-solid fa-check"></i>Safe, eco-friendly farming practices — no chemicals, no
+                        shortcuts.
+                    </li>
+
+                    <li><i class="fa-solid fa-check"></i> Diverse Cassava Product Line.</li>
+
+                    <li><i class="fa-solid fa-check"></i> Step-By-Step Guides with visual tutorials.</li>
+
+                    <li><i class="fa-solid fa-check"></i> Steps to Cassava Weed Management.</li>
+
+                    <li><i class="fa-solid fa-check"></i> Community & Social Impact; By facilitating local purchases.
+                    </li>
+
+                    <li><i class="fa-solid fa-check"></i> Virtual Assistant that'll help with your questions.
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery-section">
+        <h1>Our Gallery</h1>
+        <ul>
+            <li>
+                <img src="/img/mammer.jpg" alt="Mammer">
+                <div class="overlay">
+                    <p>View Details</p>
+                </div>
+            </li>
+            <li>
+                <img src="/img/vanner.jpg" alt="Vanner">
+                <div class="overlay">
+                    <p>View Details</p>
+                </div>
+            </li>
+            <li>
+                <img src="/img/tapiocaaer.jpg" alt="Tapioca Aer">
+                <div class="overlay">
+                    <p>View Details</p>
+                </div>
+            </li>
+            <li>
+                <img src="/img/leafer.jpg" alt="Leafer">
+                <div class="overlay">
+                    <p>View Details</p>
+                </div>
+            </li>
+        </ul>
+    </section>
+
+    <section class="sect5">
+        <h1>You've Any Questions? </h1>
+        <h3>Meet <strong>ZeKe </strong>, Your Virtual Helper 🤖.</h3>
+        <h3>
+            Need quick answers about our cassava products or guidance on how to use them?
+            Zeke, our friendly AI assistant, is here to help you anytime. <br>Click the chat icon below to get started!
+        </h3>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-top">
+
+            <div class="footer-logo">
+                <img src="/img/logggggooo.png" alt="Amoko's Sprout Logo">
+                <p>Turning Local Produce into Economic Opportunities.</p>
+            </div>
+
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <a href="main.html">Home</a>
+                <a href="aboutus.html">About Us</a>
+                <a href="market.html">E-Market</a>
+                <a href="fufu.html">How-To Guides</a>
+                <a href="gallery.html">Gallery</a>
+            </div>
+
+            <div class="footer-contact">
+                <h3>Contact</h3>
+                <p><i class="fa-solid fa-phone"></i> +234 702 513 9230</p>
+                <p><i class="fa-solid fa-envelope"></i> amokosprout@gmail.com</p>
+                <p><i class="fa-solid fa-location-dot"></i> Ogun State, Nigeria</p>
+
+                <div class="footer-social">
+                    <a href="https://facebook.com/Amoko Samuel" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://wa.me/2347025139230" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <a href="report.html" class="feedback-btn">Report a Farm Issue</a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 Amoko's Sprout. All Rights Reserved. Designed by Amoko’s Sprout Team.</p>
+        </div>
+    </footer>
+    <button id="backToTop" title="Go to top">↑</button>
+
+    <script>
+        // Guides/products with keywords
+        const searchItems = [
+            { name: "Cassava Lafun", keywords: ["cassava", "lafun", "flour", "fermented"], link: "lafun.html" },
+            { name: "Weed Control", keywords: ["weed", "control", "pesticides", "plant"], link: "tips.html" },
+            { name: "Cassava Fufu", keywords: ["cassava", "fufu", "paste"], link: "fufu.html" },
+            { name: "Cassava Chips", keywords: ["cassava", "chips", "snack", "fry"], link: "chips.html" },
+            { name: "Cassava Garri", keywords: ["cassava", "garri", "flour"], link: "garri.html" },
+            { name: "Cassava Tapioca", keywords: ["cassava", "tapioca", "pudding", "starch"], link: "tapi.html" }
+        ];
+
+        const input = document.getElementById("searchInput");
+        const suggestions = document.getElementById("suggestions");
+
+        function showSuggestions() {
+            const query = input.value.toLowerCase().trim();
+            suggestions.innerHTML = "";
+
+            if (query === "") return;
+
+            const matches = searchItems.filter(item =>
+                item.name.toLowerCase().includes(query) ||
+                item.keywords.some(k => k.toLowerCase().includes(query))
+            );
+
+            matches.forEach(item => {
+                const div = document.createElement("div");
+                div.classList.add("suggestion-item");
+                div.textContent = item.name;
+                div.onclick = () => window.location.href = item.link; // open page
+                suggestions.appendChild(div);
+            });
+        }
+
+        function searchSite() {
+            const query = input.value.toLowerCase();
+            const match = searchItems.find(item =>
+                item.name.toLowerCase() === query ||
+                item.keywords.some(k => k.toLowerCase() === query)
+            );
+
+            if (match) {
+                window.location.href = match.link;
+            } else {
+                alert("No exact match found. Try typing a keyword!");
+            }
+        }
+
+        // Close suggestions if clicked outside
+        document.addEventListener("click", (e) => {
+            if (!e.target.closest(".search-section")) {
+                suggestions.innerHTML = "";
+            }
+        });
+
+    </script>
+
+
+</body>
+
+</html>

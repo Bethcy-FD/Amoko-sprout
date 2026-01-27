@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amoko's Sprout</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="market.css">
+
+    <!-- robotofont -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- fontawesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script>
+        (function () { if (!window.chatbase || window.chatbase("getState") !== "initialized") { window.chatbase = (...arguments) => { if (!window.chatbase.q) { window.chatbase.q = [] } window.chatbase.q.push(arguments) }; window.chatbase = new Proxy(window.chatbase, { get(target, prop) { if (prop === "q") { return target.q } return (...args) => target(prop, ...args) } }) } const onLoad = function () { const script = document.createElement("script"); script.src = "https://www.chatbase.co/embed.min.js"; script.id = "vPyKjv51A-jIE8Ne5AePe"; script.domain = "www.chatbase.co"; document.body.appendChild(script) }; if (document.readyState === "complete") { onLoad() } else { window.addEventListener("load", onLoad) } })();
+    </script>
+
+</head>
+
+<body>
+
+    <nav>
+        <div class="bg">
+
+            <img src="/img/amokologo.png" alt="logo">
+
+            <div class="bottomnav">
+                <ul>
+                    <li><a href="main.html">Home</a></li>
+
+                    <div class="dropdown">
+                        <li class="dropbtn">About <i class="fa-solid fa-caret-down"></i></li>
+                        <div class="dropdown-content">
+                            <a href="aboutus.html">About Us</a>
+                            <a href="tips.html">Weed Control</a>
+                        </div>
+                    </div>
+
+                    <div class="dropdown">
+                        <li><a href="market.html">E-Market</a></li>
+                    </div>
+
+                    <div class="dropdown">
+                        <li class="dropbtn">How To <i class="fa-solid fa-caret-down"></i></a></li>
+                        <div class="dropdown-content">
+                            <a href="fufu.html">Cassava - Fufu</a>
+                            <a href="garri.html">Cassva - Garri</a>
+                            <a href="chips.html">Cassva - Chips</a>
+                            <a href="lafun.html">Cassava - Lafun</a>
+                            <a href="tapi.html">Cassva - Tapioca</a>
+                        </div>
+                    </div>
+                    <li><a href="gallery.html">Gallery</a></li>
+                </ul>
+
+                <div class="nav-auth">
+                    <a href="login.html" class="auth-btn login-link">Login</a>
+                    <a href="signup.html" class="auth-btn signup-btn">Sign Up</a>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="cart-btn" onclick="toggleCart()">
+            🛒 Cart (<span id="cartCount">0</span>)
+        </div>
+
+        </div>
+    </nav>
+
+    <section class="market-header">
+        <h1>Our Cassava Products</h1>
+        <p>Fresh • Organic • Affordable</p>
+
+        <div class="market-search">
+            <input id="searchInput" placeholder="Search products...">
+            <button><i class="fa fa-search"></i></button>
+        </div>
+
+        <div class="market-categories">
+            <button class="active" data-category="all">All</button>
+            <button data-category="raw">Raw</button>
+            <button data-category="processed">Processed</button>
+            <button data-category="garri">Garri</button>
+            <button data-category="flour">Flour</button>
+            <button data-category="chips">Chips</button>
+            <button data-category="livestock">Livestock</button>
+        </div>
+    </section>
+
+
+    <!-- PRODUCT GRID -->
+    <section class="products">
+        <h2>Available Products</h2>
+
+        <div class="product-grid">
+
+            <div class="product-card" data-category="raw">
+                <img src="img/cassava1.jpg" alt="Raw Cassava" />
+                <h3>Raw Cassava (Tubers)</h3>
+                <p>Freshly harvested cassava tubers.</p>
+                <span class="price">₦3,500 / bag</span>
+                <button onclick="addToCart('tuber',3500)">Add to Cart</button>
+            </div>
+
+
+            <div class="product-card" data-category="garri">
+                <img src="img/yellowgarri.jpg">
+                <h3>Yellow Garri</h3>
+                <p>Crunchy garri</p>
+                <span class="price">₦1,800</span>
+                <button onclick="addToCart('Yellow Garri',1800)">Add to Cart</button>
+            </div>
+
+
+            <div class="product-card" data-category="garri">
+                <img src="/img/garriwhite.jpg" alt="White Garri">
+                <h3>White Garri</h3>
+                <p>Sand-free white garri.</p>
+                <span class="price">₦1,200 / Basin</span>
+                <button onclick="addToCart('White Garri',1200)">Add to Cart</button>
+            </div>
+
+            <div class="product-card" data-category="flour">
+                <img src="img/fufuu.jpg">
+                <h3>Fufu</h3>
+                <p>Fine cassava flour</p>
+                <span class="price">₦1,500</span>
+                <button onclick="addToCart('Fufu',1500)">Add to Cart</button>
+            </div>
+
+
+            <div class="product-card" data-category="chips">
+                <img src="img/chips.jpg">
+                <h3>Cassava Chips</h3>
+                <p>Crispy chips</p>
+                <span class="price">₦800</span>
+                <button onclick="addToCart('Cassava Chips',800)">Add to Cart</button>
+            </div>
+
+            <div class="product-card" data-category="processed">
+                <img src="img/tapiocaaer.jpg" alt="Tapioca" />
+                <h3>Tabioca</h3>
+                <p>Clean, well processed tapioca.</p>
+                <span class="price">₦900 / 1kg</span>
+                <button onclick="addToCart('Tapioca',900)">Add to Cart</button>
+            </div>
+
+            <div class="product-card" data-category="livestock">
+                <img src="/img/casapeel.jpg" alt="Cassava Peels">
+                <h3>Cassava Peels</h3>
+                <p>Dried clean peels for animal feed.</p>
+                <span class="price">₦1,200 / Sack</span>
+                <button onclick="addToCart('peel',1200)">Add to Cart</button>
+            </div>
+
+            <div class="product-card" data-category="processed">
+                <img src="/img/starch.jpg" alt="Cassava Starch">
+                <h3>Cassava Starch</h3>
+                <p>Pure white starch for cooking and baking.</p>
+                <span class="price">₦4,000 / Pack</span>
+                <button onclick="addToCart('starch',4000)">Add to Cart</button>
+            </div>
+
+            <div class="product-card" data-category="processed">
+                <img src="/img/flourrr.jpg" alt="Cassava Semo">
+                <h3>Cassava Amala (Lafun)</h3>
+                <p>Smooth, fine swallow alternative.</p>
+                <span class="price">₦2,800 / Pack</span>
+                <button onclick="addToCart('Lafun',2800)">Add to Cart</button>
+            </div>
+
+            <div class="product-card" data-category="raw">
+                <img src="img/stickk.jpg" alt="Cassava Stick" />
+                <h3>Cassava Stick</h3>
+                <p>Cassava Stick For Planting .</p>
+                <span class="price">₦450 / stick</span>
+                <button onclick="addToCart('Stick',450)">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-content">
+            <h2>Your Cart</h2>
+            <div id="cartItems"></div>
+            <button onclick="checkout()">Order via WhatsApp</button>
+            <button onclick="toggleCart()">Close</button>
+        </div>
+    </div>
+
+    <section class="cta">
+        <h2>Chat with Us Now!</h2>
+        <p>Get guidance on cassava farming, processing, and opportunities.</p>
+        <button><a href="https://wa.me/2347025139230" class="cab" target="blank">Get Started</a>
+        </button>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-logo">
+                <img src="/img/logggggooo.png" alt="Amoko's Sprout Logo">
+                <p>Turning Local Produce into Economic Opportunities.</p>
+            </div>
+
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <a href="main.html">Home</a>
+                <a href="aboutus.html">About Us</a>
+                <a href="market.html">E-Market</a>
+                <a href="fufu.html">How-To Guides</a>
+                <a href="gallery.html">Gallery</a>
+            </div>
+
+            <div class="footer-contact">
+                <h3>Contact</h3>
+                <p><i class="fa-solid fa-phone"></i> +234 702 513 9230</p>
+                <p><i class="fa-solid fa-envelope"></i> amokosprout@gmail.com</p>
+                <p><i class="fa-solid fa-location-dot"></i> Ogun State, Nigeria</p>
+
+                <div class="footer-social">
+                    <a href="https://facebook.com/Amoko Samuel" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://wa.me/2347025139230" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 Amoko's Sprout. All Rights Reserved. Designed by Amoko’s Sprout Team.</p>
+        </div>
+
+    </footer>
+
+    <script>
+        let isLoggedIn = localStorage.getItem("loggedIn") === "true";
+
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        function updateCart() {
+            const cartCount = document.getElementById('cartCount');
+            const cartItems = document.getElementById('cartItems');
+
+            if (!cartCount || !cartItems) {
+                console.error("Cart elements not found");
+                return;
+            }
+
+            cartCount.innerText = cart.length;
+            cartItems.innerHTML = '';
+
+            cart.forEach(item => {
+                cartItems.innerHTML += `
+            <div class="cart-item">
+                <span>${item.name}</span>
+                <span>₦${item.price}</span>
+            </div>
+        `;
+            });
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            console.log(cart); // 👈 IMPORTANT
+            updateCart();
+        }
+
+
+
+        function toggleCart() {
+            const modal = document.getElementById('cartModal');
+            modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        function checkout() {
+            const loggedIn = localStorage.getItem("loggedIn") === "true";
+
+            if (!loggedIn) {
+                alert("Please log in to place an order.");
+                window.location.href = "login.html";
+                return;
+            }
+
+            if (cart.length === 0) {
+                alert("Your cart is empty!");
+                return;
+            }
+
+            let msg = "Hello Amoko Sprout, I want to order:\n";
+            cart.forEach(i => {
+                msg += `- ${i.name}: ₦${i.price}\n`;
+            });
+
+            window.open(
+                `https://wa.me/2347025139230?text=${encodeURIComponent(msg)}`,
+                "_blank"
+            );
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const searchInput = document.getElementById('searchInput');
+            const cards = document.querySelectorAll('.product-card');
+            const categoryBtns = document.querySelectorAll('.market-categories button');
+
+            // SEARCH
+            searchInput.addEventListener('input', () => {
+                const value = searchInput.value.toLowerCase();
+                cards.forEach(card => {
+                    card.style.display =
+                        card.innerText.toLowerCase().includes(value) ? '' : 'none';
+                });
+            });
+
+            // CATEGORY FILTER
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    categoryBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const cat = btn.dataset.category;
+                    cards.forEach(card => {
+                        card.style.display =
+                            cat === 'all' || card.dataset.category === cat ? '' : 'none';
+                    });
+                });
+            });
+
+            updateCart();
+        });
+    </script>
+
+
+</body>
+
+</html>

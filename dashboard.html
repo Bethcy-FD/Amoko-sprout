@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amoko's Sprout | Farmer Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .active-tab {
+            display: block !important;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .locked-btn {
+            opacity: 0.5;
+            cursor: not-allowed !important;
+        }
+
+        .error-input {
+            border-color: #dc2626 !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="success-toast" class="toast-notification">
+        <div class="toast-content">
+            <div class="toast-icon"><i class="fa-solid fa-check"></i></div>
+            <div class="toast-message">
+                <h4>Sale Confirmed!</h4>
+                <p>Amoko Logistics has been notified for pickup.</p>
+            </div>
+        </div>
+        <div class="toast-progress"></div>
+    </div>
+
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="brand">
+                <h2>Amoko<span>Sprout</span></h2>
+            </div>
+            <nav class="menu">
+                <a href="#" class="menu-item active" onclick="switchPage('home')"><i class="fa-solid fa-house"></i>
+                    Home</a>
+                <a href="market.html" class="menu-item"><i class="fa-solid fa-shop"></i> e-Market</a>
+                <a href="#" class="menu-item" onclick="switchPage('sales')"><i class="fa-solid fa-cart-shopping"></i> My
+                    Sales</a>
+                <a href="#" class="menu-item" onclick="switchPage('pickups')"><i class="fa-solid fa-truck"></i>
+                    Pickups</a>
+                <a href="#" class="menu-item" onclick="switchPage('payments')"><i class="fa-solid fa-wallet"></i>
+                    Payments</a>
+                <a href="#" class="menu-item" onclick="switchPage('settings')"><i class="fa-solid fa-gear"></i>
+                    Settings</a>
+            </nav>
+            <div class="sidebar-bottom">
+                <a href="main.html" class="logout-link"><i class="fa-solid fa-right-from-bracket"></i> Log Out</a>
+            </div>
+        </aside>
+
+        <main class="main-panel">
+            <header class="header">
+                <div>
+                    <h1>Good morning, <span id="farmer-name-display">Farmer</span> 👋</h1>
+                    <p id="page-subtitle">Manage your sales and track market prices.</p>
+                </div>
+                <div class="user-avatar">
+                    <div class="avatar-circle" id="user-initials">F</div>
+                </div>
+            </header>
+
+            <div id="home-section" class="tab-content active-tab">
+                <section class="stats-section">
+                    <div class="stat-card bubble-green">
+                        <div class="card-inner">
+                            <div class="card-info">
+                                <small>Lifetime Earnings</small>
+                                <h3 id="stat-earnings">₦0.00</h3>
+                            </div>
+                            <i class="fa-solid fa-chart-line card-icon"></i>
+                        </div>
+                    </div>
+                    <div class="stat-card bubble-gold">
+                        <div class="card-inner">
+                            <div class="card-info">
+                                <small>Wallet Balance</small>
+                                <h3 id="stat-wallet">₦0.00</h3>
+                            </div>
+                            <i class="fa-solid fa-wallet card-icon"></i>
+                        </div>
+                    </div>
+                    <div class="stat-card bubble-green">
+                        <div class="card-inner">
+                            <div class="card-info">
+                                <small>Active Sale Status</small>
+                                <h3 id="stat-pickup">No Active Sale</h3>
+                                <p class="card-footer" id="pickup-footer">Sell to Amoko below</p>
+                            </div>
+                            <i class="fa-solid fa-truck-fast card-icon"></i>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="dashboard-grid">
+                    <div class="content-box">
+                        <div class="form-header">
+                            <i class="fa-solid fa-handshake" style="color: #39c148;"></i>
+                            <h3>Instant Sale to Amoko</h3>
+                        </div>
+                        <form id="harvestForm">
+                            <div class="input-group">
+                                <label>Select Produce</label>
+                                <select id="produce-type" onchange="updateLivePrice()">
+                                    <option value="white_garri">White Garri</option>
+                                    <option value="yellow_garri">Yellow Garri</option>
+                                    <option value="lafun">Lafun / Flour</option>
+                                    <option value="chips">Cassava Chips</option>
+                                    <option value="tapioca">Tapioca</option>
+                                    <option value="peel">Cassava Peel</option>
+                                </select>
+                            </div>
+                            <div class="input-row">
+                                <div class="input-group">
+                                    <label>Unit Type</label>
+                                    <select id="quantity-type" onchange="updateLivePrice()">
+                                        <option value="bag">Bags</option>
+                                        <option value="paint">Paint Buckets</option>
+                                        <option value="kg">Kilograms (KG)</option>
+                                    </select>
+                                </div>
+                                <div class="input-group">
+                                    <label>Amount</label>
+                                    <input type="number" id="produce-qty" placeholder="0" required
+                                        oninput="updateLivePrice()">
+                                </div>
+                            </div>
+                            <div class="inline-payout">
+                                <span>Estimated Payout:</span>
+                                <strong id="live-total">₦0.00</strong>
+                            </div>
+                            <button type="submit" id="sale-submit-btn" class="submit-btn">Confirm Sale & Request
+                                Pickup</button>
+                        </form>
+                    </div>
+
+
+                    <div class="content-box">
+
+                        <div class="box-header-flex">
+
+                            <h3>Live Market Prices</h3>
+
+                            <span class="live-indicator"><span class="dot"></span> Live</span>
+
+                        </div>
+
+                        <p class="box-desc">Current verified rates across various units.</p>
+
+
+
+                        <div class="price-scroll-area">
+
+                            <div class="price-group">
+
+                                <span class="item-name">White Garri</span>
+
+                                <div class="unit-grid">
+
+                                    <div class="unit-item"><span>1KG</span><strong>₦800</strong></div>
+
+                                    <div class="unit-item"><span>Paint</span><strong>₦2,500</strong></div>
+
+                                    <div class="unit-item"><span>Bag</span><strong>₦45,000</strong></div>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="price-group">
+
+                                <span class="item-name">Yellow Garri</span>
+
+                                <div class="unit-grid">
+
+                                    <div class="unit-item"><span>1KG</span><strong>₦950</strong></div>
+
+                                    <div class="unit-item"><span>Paint</span><strong>₦3,200</strong></div>
+
+                                    <div class="unit-item"><span>Bag</span><strong>₦52,000</strong></div>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="price-group">
+
+                                <span class="item-name">Lafun (Cassava Flour)</span>
+
+                                <div class="unit-grid">
+
+                                    <div class="unit-item"><span>1KG</span><strong>₦700</strong></div>
+
+                                    <div class="unit-item"><span>Paint</span><strong>₦2,100</strong></div>
+
+                                    <div class="unit-item"><span>Bag</span><strong>₦38,000</strong></div>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="price-group">
+
+                                <span class="item-name">Cassava Chips</span>
+
+                                <div class="unit-grid">
+
+                                    <div class="unit-item"><span>1KG</span><strong>₦600</strong></div>
+
+                                    <div class="unit-item"><span>Paint</span><strong>₦1,800</strong></div>
+
+                                    <div class="unit-item"><span>Bag</span><strong>₦32,000</strong></div>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="price-group">
+
+                                <span class="item-name">Tapioca</span>
+
+                                <div class="unit-grid">
+
+                                    <div class="unit-item"><span>1KG</span><strong>₦1,200</strong></div>
+
+                                    <div class="unit-item"><span>Paint</span><strong>₦4,000</strong></div>
+
+                                    <div class="unit-item"><span>Bag</span><strong>₦65,000</strong></div>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="price-group">
+
+                                <span class="item-name">Cassava Peel (Livestock Feed)</span>
+
+                                <div class="unit-grid">
+
+                                    <div class="unit-item"><span>1KG</span><strong>₦150</strong></div>
+
+                                    <div class="unit-item"><span>Paint</span><strong>₦500</strong></div>
+
+                                    <div class="unit-item"><span>Bag</span><strong>₦8,000</strong></div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div <div class="content-box full-width">
+                    <h3>Recent Sales Activity</h3>
+                    <table class="activity-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Produce</th>
+                                <th>Quantity</th>
+                                <th>Total Value</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="activity-body">
+                            <tr class="empty-row">
+                                <td colspan="5">No recent sales reported.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+    </div>
+
+    <div id="sales-section" class="tab-content">
+        <div class="content-box full-width">
+            <h3>All Sales History</h3>
+            <table class="activity-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Produce</th>
+                        <th>Quantity</th>
+                        <th>Value</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="full-history-body"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="pickups-section" class="tab-content">
+        <div class="content-box">
+            <h3>Amoko Logistics Tracker</h3>
+            <div style="text-align: center; padding: 40px;">
+                <i class="fa-solid fa-truck-clock" style="font-size: 50px; color: #cbd5e1; margin-bottom: 20px;"></i>
+                <p>No active pickups scheduled today.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="payments-section" class="tab-content">
+        <div class="content-box">
+            <h3>Wallet & Bank Settings</h3>
+            <div class="bank-card"
+                style="background:#f8fafc; padding:20px; border-radius:15px; border:1px solid #e2e8f0; display:flex; align-items:center; gap:15px;">
+                <i class="fa-solid fa-building-columns" style="color:#39c148; font-size:24px;"></i>
+                <div>
+                    <strong>Bank Account Linked</strong>
+                    <p>Access Bank • 0123456789</p>
+                </div>
+            </div>
+            <button class="submit-btn" style="margin-top:20px; width:auto;">Withdraw Funds</button>
+        </div>
+    </div>
+
+    <div id="settings-section" class="tab-content">
+        <div class="content-box">
+            <h3><i class="fa-solid fa-shield-halved"></i> Farmer Verification</h3>
+            <p class="box-desc">Verify your identity (NIN) to unlock sales.</p>
+
+            <div id="kyc-gate">
+                <div class="input-group">
+                    <label>Enter 11-Digit NIN</label>
+                    <input type="number" id="nin-field" placeholder="e.g. 12345678901"
+                        style="width: 100%; padding: 12px; border: 2px solid #e2e8f0; border-radius: 10px;">
+                    <p id="error-msg" style="color: #dc2626; font-size: 13px; margin-top: 8px; display: none;">❌
+                        Invalid NIN. Must be 11 digits.</p>
+                </div>
+                <button class="submit-btn" onclick="verifyMe()">Verify Identity</button>
+            </div>
+
+            <div id="verification-success" style="display: none; text-align: center; padding: 30px;">
+                <i class="fa-solid fa-circle-check" style="color: #39c148; font-size: 60px;"></i>
+                <h2>Verification Complete!</h2>
+                <p>Your account is now active and ready for sales.</p>
+            </div>
+        </div>
+    </div>
+
+    </main>
+    </div>
+
+    <script>
+        const prices = {
+            white_garri: { kg: 800, paint: 2500, bag: 45000 },
+            yellow_garri: { kg: 950, paint: 3200, bag: 52000 },
+            lafun: { kg: 700, paint: 2100, bag: 38000 },
+            chips: { kg: 600, paint: 1800, bag: 32000 },
+            tapioca: { kg: 1200, paint: 4000, bag: 65000 },
+            peel: { kg: 150, paint: 500, bag: 8000 }
+        };
+
+        let walletBalance = 0;
+        let totalEarnings = 0;
+
+        window.onload = function () {
+            // Set User Info
+            const name = localStorage.getItem('farmerName') || "Farmer";
+            document.getElementById('farmer-name-display').innerText = name;
+            document.getElementById('user-initials').innerText = name.charAt(0).toUpperCase();
+
+            // Check Verification Status
+            checkVerificationState();
+        };
+
+        function checkVerificationState() {
+            const isVerified = localStorage.getItem('isVerified') === 'true';
+            const saleBtn = document.getElementById('sale-submit-btn');
+            const kycGate = document.getElementById('kyc-gate');
+            const kycSuccess = document.getElementById('verification-success');
+
+            if (isVerified) {
+                saleBtn.disabled = false;
+                saleBtn.classList.remove('locked-btn');
+                saleBtn.innerText = "Confirm Sale & Request Pickup";
+                if (kycGate) kycGate.style.display = "none";
+                if (kycSuccess) kycSuccess.style.display = "block";
+            } else {
+                saleBtn.disabled = true;
+                saleBtn.classList.add('locked-btn');
+                saleBtn.innerText = "Verify in Settings to Sell";
+            }
+        }
+
+        function switchPage(pageId) {
+            document.querySelectorAll('.tab-content').forEach(s => s.classList.remove('active-tab'));
+            document.getElementById(pageId + '-section').classList.add('active-tab');
+
+            document.querySelectorAll('.menu-item').forEach(item => {
+                item.classList.remove('active');
+                if (item.innerText.toLowerCase().includes(pageId)) item.classList.add('active');
+            });
+        }
+
+        function updateLivePrice() {
+            const produce = document.getElementById('produce-type').value;
+            const unit = document.getElementById('quantity-type').value;
+            const qty = document.getElementById('produce-qty').value;
+            const totalDisplay = document.getElementById('live-total');
+
+            if (qty > 0) {
+                const total = prices[produce][unit] * qty;
+                totalDisplay.innerText = "₦" + total.toLocaleString();
+            } else {
+                totalDisplay.innerText = "₦0.00";
+            }
+        }
+
+        function verifyMe() {
+            const ninInput = document.getElementById('nin-field').value;
+            const errorDisplay = document.getElementById('error-msg');
+
+            if (ninInput.length === 11) {
+                localStorage.setItem('isVerified', 'true');
+                checkVerificationState();
+                alert("Account Verified Successfully!");
+            } else {
+                errorDisplay.style.display = "block";
+                document.getElementById('nin-field').classList.add('error-input');
+            }
+        }
+
+        document.getElementById('harvestForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const produceSelect = document.getElementById('produce-type');
+            const typeText = produceSelect.options[produceSelect.selectedIndex].text;
+            const unit = document.getElementById('quantity-type').value;
+            const qty = document.getElementById('produce-qty').value;
+
+            if (qty <= 0 || qty > 1000) {
+                alert("Please enter a valid quantity (1-1000).");
+                return;
+            }
+
+            const rawTotal = prices[produceSelect.value][unit] * qty;
+
+            // Update UI Stats
+            walletBalance += rawTotal;
+            totalEarnings += rawTotal;
+            document.getElementById('stat-wallet').innerText = "₦" + walletBalance.toLocaleString();
+            document.getElementById('stat-earnings').innerText = "₦" + totalEarnings.toLocaleString();
+            document.getElementById('stat-pickup').innerText = qty + " " + unit + "(s)";
+            document.getElementById('pickup-footer').innerText = "Processing: " + typeText;
+
+            // Update Tables
+            const rowHTML = `<tr>
+                <td>${new Date().toLocaleDateString()}</td>
+                <td>${typeText}</td>
+                <td>${qty} ${unit}</td>
+                <td><strong>₦${rawTotal.toLocaleString()}</strong></td>
+                <td><span class="status-pill" style="color:#39c148;">Confirmed</span></td>
+            </tr>`;
+
+            const empty = document.querySelector('.empty-row');
+            if (empty) empty.remove();
+
+            document.getElementById('activity-body').insertAdjacentHTML('afterbegin', rowHTML);
+            document.getElementById('full-history-body').insertAdjacentHTML('afterbegin', rowHTML);
+
+            // Notification
+            const toast = document.getElementById('success-toast');
+            toast.classList.add('active');
+            this.reset();
+            document.getElementById('live-total').innerText = "₦0.00";
+            setTimeout(() => { toast.classList.remove('active'); }, 3000);
+        });
+    </script>
+</body>
+
+</html>

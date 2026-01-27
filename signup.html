@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | Amoko's Sprout</title>
+    <link rel="stylesheet" href="signup.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="signup-container">
+        <div class="signup-card">
+            <img src="img/logggggooo.png" alt="Logo" class="logo">
+
+            <div class="user-type-toggle">
+                <button type="button" class="toggle-btn active" id="buyer-tab" onclick="switchMode('buyer')">Buyer
+                    Account</button>
+                <button type="button" class="toggle-btn" id="farmer-tab" onclick="switchMode('farmer')">Farmer
+                    Portal</button>
+            </div>
+
+            <div id="form-content">
+                <h2 id="main-title">Create Buyer Account</h2>
+                <p id="main-sub">Shop fresh produce directly from local farms.</p>
+
+                <form id="signupForm">
+                    <div class="input-group">
+                        <label><i class="fa-solid fa-user"></i> Full Name</label>
+                        <input type="text" id="userName" placeholder="Enter your name" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label><i class="fa-solid fa-phone"></i> Phone Number</label>
+                        <input type="tel" id="userPhone" placeholder="08012345678" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label><i class="fa-solid fa-lock"></i> Password</label>
+                        <input type="password" id="userPass" placeholder="••••••••" required>
+                    </div>
+
+                    <button type="submit" class="signup-btn" id="submit-btn">Register as Buyer</button>
+                </form>
+
+                <div class="footer-links">
+                    <p>Already a seller? <a href="dashboard.html">Seller log-In</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchMode(role) {
+            const title = document.getElementById('main-title');
+            const sub = document.getElementById('main-sub');
+            const btn = document.getElementById('submit-btn');
+            const buyerTab = document.getElementById('buyer-tab');
+            const farmerTab = document.getElementById('farmer-tab');
+
+            if (role === 'farmer') {
+                // UPDATE UI
+                buyerTab.classList.remove('active');
+                farmerTab.classList.add('active');
+                title.innerText = "Farmer Registration";
+                sub.innerText = "You are being redirected to the Farmer's Portal...";
+                btn.innerText = "Continue to Farmer Portal";
+
+                // REDIRECT LOGIC
+                // We give them 1 second to see the change, then send them to your portal
+                setTimeout(() => {
+                    window.location.href = "farmer.html";
+                }, 800);
+
+            } else {
+                buyerTab.classList.add('active');
+                farmerTab.classList.remove('active');
+                title.innerText = "Create Buyer Account";
+                sub.innerText = "Shop fresh produce directly from local farms.";
+                btn.innerText = "Register as Buyer";
+            }
+        }
+
+        document.getElementById('signupForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            // Save buyer data logic
+            const name = document.getElementById('userName').value;
+            localStorage.setItem('currentBuyerName', name);
+            localStorage.setItem('isBuyerLoggedIn', 'true');
+
+            alert("Registration successful! Redirecting to Market...");
+            window.location.href = "market.html";
+        });
+    </script>
+</body>
+
+</html>

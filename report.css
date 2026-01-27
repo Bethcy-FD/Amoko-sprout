@@ -1,0 +1,207 @@
+/* General Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        url("img/land.jpeg");
+    /* Uses your farm image as background */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* Keeps nav at top, content below */
+}
+
+/* NAVIGATION BAR */
+nav {
+    width: 100%;
+    padding: 10px 40px;
+    background: rgba(0, 0, 0, 0.3);
+    /* Slight dark tint for the nav area */
+}
+
+nav img {
+    width: 100px;
+    height: auto;
+}
+
+.bg {
+    display: flex;
+    margin-left: 40px;
+}
+
+.bottomnav ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 50px;
+    margin-left: 470px;
+    padding: 40px 0;
+}
+
+li {
+    list-style: none;
+}
+
+.bottomnav a {
+    text-decoration: none;
+    gap: 50px;
+    color: rgb(255, 244, 244);
+}
+
+
+.bottomnav a:hover {
+    color: rgb(249, 208, 103);
+}
+
+.dropbtn {
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 140px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* THE CARD CENTERED SECTION */
+.report-container {
+    background: rgba(255, 255, 255, 0.95);
+    /* Nearly solid white card */
+    max-width: 500px;
+    width: 90%;
+    margin: auto;
+    /* This centers the card in the remaining space */
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.report-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.report-header h1 {
+    color: #39c148;
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.report-header p {
+    color: #555;
+    font-size: 14px;
+}
+
+/* FORM STYLING */
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+    font-size: 14px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+.urgency label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.urgency select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 15px;
+}
+
+.urgency-options {
+    display: flex;
+    gap: 20px;
+    padding: 5px 0;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+}
+
+.submit-report {
+    width: 100%;
+    background-color: #39c148;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.submit-report:hover {
+    background-color: #2f9c39;
+    transform: translateY(-2px);
+}
+
+.back-link {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: #888;
+    text-decoration: none;
+    font-size: 13px;
+}

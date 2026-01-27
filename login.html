@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Amoko's Sprout</title>
+    <link rel="stylesheet" href="signup.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="signup-container">
+        <div class="signup-card">
+            <img src="img/logggggooo.png" alt="Logo" class="logo">
+
+            <h2>Welcome Back</h2>
+            <p>Log in to your account</p>
+
+            <form id="loginForm">
+                <div class="input-group">
+                    <label><i class="fa-solid fa-phone"></i> Phone Number</label>
+                    <input type="tel" id="loginPhone" placeholder="08012345678" required>
+                </div>
+
+                <div class="input-group">
+                    <label><i class="fa-solid fa-lock"></i> Password</label>
+                    <input type="password" id="loginPass" placeholder="••••••••" required>
+                </div>
+
+                <button type="submit" class="signup-btn">Login</button>
+            </form>
+
+            <div class="footer-links">
+                <p>New here? <a href="signup.html">Create Account</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const phone = document.getElementById('loginPhone').value;
+            const pass = document.getElementById('loginPass').value;
+
+            // 1. Get the data we saved during Sign Up
+            const registeredPhone = localStorage.getItem('userPhone');
+            const registeredPass = localStorage.getItem('userPass');
+            const userRole = localStorage.getItem('userRole'); // 'buyer' or 'farmer'
+
+            // 2. Simple Validation
+            if (phone === registeredPhone && pass === registeredPass) {
+
+                if (userRole === 'farmer') {
+                    alert("Welcome back, Farmer!");
+                    window.location.href = "dashboard.html";
+                } else {
+                    localStorage.setItem('isBuyerLoggedIn', 'true');
+                    alert("Welcome back, Buyer!");
+                    localStorage.setItem("loggedIn", "true");
+                    window.location.href = "market.html";
+                }
+
+            } else {
+                alert("Invalid credentials. Please check your phone number or password and try again.");
+            }
+        });
+    </script>
+</body>
+
+</html>

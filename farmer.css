@@ -1,0 +1,262 @@
+/* General Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        url("img/land.jpeg");
+    /* Uses your farm image as background */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* Keeps nav at top, content below */
+}
+
+/* NAVIGATION BAR */
+nav {
+    width: 100%;
+    padding: 10px 40px;
+    background: rgba(0, 0, 0, 0.3);
+    /* Slight dark tint for the nav area */
+}
+
+nav img {
+    width: 100px;
+    height: auto;
+}
+
+.bg {
+    display: flex;
+    margin-left: 40px;
+}
+
+.bottomnav ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 50px;
+    margin-left: 470px;
+    padding: 40px 0;
+}
+
+li {
+    list-style: none;
+}
+
+.bottomnav a {
+    text-decoration: none;
+    gap: 50px;
+    color: rgb(255, 244, 244);
+}
+
+
+.bottomnav a:hover {
+    color: rgb(249, 208, 103);
+}
+
+.dropbtn {
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 140px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* 1. Import a clean, modern font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* 2. The Header Section (Fixes the "Dark/Invisible" issue) */
+.portal-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #ffffff; /* Ensures background isn't black */
+}
+
+.portal-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.portal-header h1 {
+    color: #1b5e20 !important; /* Deep Green - High Visibility */
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    opacity: 1 !important; /* Overrides any hidden animation */
+}
+
+.portal-header p {
+    color: #444 !important; /* Dark Grey */
+    font-size: 18px;
+}
+
+/* 3. The Layout (Side-by-Side) */
+.portal-content {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap; /* Good for mobile */
+}
+
+/* 4. Left Side: Why Join Us */
+.info-card {
+    flex: 1;
+    min-width: 300px;
+    max-height: 430px;
+    background: #f1f8e9; /* Light Mint Green */
+    padding: 40px;
+    border-radius: 20px;
+    border-left: 8px solid #39c148;
+}
+
+.info-card h3 {
+    color: #2e7d32;
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+
+.benefit {
+    margin-bottom: 20px;
+}
+
+.benefit strong {
+    display: block;
+    color: #1b5e20;
+    font-size: 19px;
+    margin-bottom: 5px;
+}
+
+.benefit p {
+    color: #555 !important;
+    line-height: 1.6;
+}
+
+/* 5. Right Side: The Form Card */
+.form-card {
+    flex: 1.5;
+    min-width: 350px;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1); /* Soft shadow for depth */
+    border: 1px solid #eee;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-weight: 600;
+    color: #333 !important;
+    margin-bottom: 8px;
+}
+
+/* Input boxes styling */
+.input-group input, 
+.input-group select, 
+.input-group textarea {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 16px;
+    background: #fafafa;
+    color: #333; /* Dark text when typing */
+    transition: 0.3s;
+}
+
+.input-group input:focus {
+    border-color: #39c148;
+    outline: none;
+    background: #fff;
+}
+
+/* 6. The Submit Button */
+.apply-btn {
+    width: 100%;
+    background: #39c148;
+    color: white !important;
+    padding: 16px;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 4px 12px rgba(57, 193, 72, 0.3);
+}
+
+.apply-btn:hover {
+    background: #2e9e3a;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(57, 193, 72, 0.4);
+}
+
+/* Mobile Responsive */
+@media (max-width: 800px) {
+    .portal-content {
+        flex-direction: column;
+    }
+}
+
+/* Specific styling for file inputs */
+.input-group input[type="file"] {
+    padding: 10px;
+    background: #fff;
+    cursor: pointer;
+    border: 2px dashed #39c148; /* Highlight the upload area */
+}
+
+.input-group input[type="file"]:hover {
+    background: #f0fff0;
+    border-color: #2e9e3a;
+}
+
+.input-group small {
+    display: block;
+    margin-top: 4px;
+    font-size: 12px;
+}

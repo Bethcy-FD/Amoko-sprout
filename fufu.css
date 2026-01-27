@@ -1,0 +1,385 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    background: #f5f5f5;
+    color: #333;
+}
+
+/* NAVIGATION BAR */
+nav {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("img/land.jpeg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 30vh;
+
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
+}
+
+nav img {
+    width: 120px;
+    height: auto;
+}
+
+nav::before {
+    position: absolute;
+    top: 30;
+    left: 30;
+    right: 30;
+    bottom: 30;
+    background-color: rgb(0, 0, 0.5);
+}
+
+.bg {
+    display: flex;
+    margin-left: 40px;
+}
+
+.bottomnav ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 50px;
+    margin-left: 470px;
+    padding: 40px 0;
+}
+
+li {
+    list-style: none;
+}
+
+.bottomnav a {
+    text-decoration: none;
+    gap: 50px;
+    color: rgb(255, 244, 244);
+}
+
+
+.bottomnav a:hover {
+    color: rgb(249, 208, 103);
+}
+
+.dropbtn {
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 140px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* sect2 */
+.sect2 {
+    margin-top: 30px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/img/bgg.png);
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding: 40px 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 30px;
+}
+
+
+.sect2 h1 {
+    font-weight: 800;
+    font-size: 30px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    color: #f9d067; /* warm yellow highlight */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
+}
+
+.unique-container {
+    display: flex;
+    align-items: center;
+    gap: 100px;
+    padding-left: 100px;
+
+}
+
+.sect2 div {
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    clear: both;
+
+}
+
+.sect2 h3 {
+    line-height: 1.5;
+    font-weight: 500;
+    padding: 30px;
+    color: black;
+    border-radius: 4px;
+    border: 3px solid white;
+    background-color: whitesmoke;
+    background: rgba(255, 255, 255, 0.95);
+    border-left: 5px solid #39c148;
+}
+
+.unique-container img {
+    width: 350px;
+    border-radius: 10px;
+    border: 5px solid #39c148;
+    box-shadow: 0 8px 20px rgba(57,193,72,0.4);
+    margin-top: 70px;
+    
+}
+
+
+/* sect3 */
+.sect3 {
+    margin: 70px auto;
+    padding: 50px 8%;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.sect3 h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+/* Card groups */
+.cart {
+    background: #f9f9f9;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.cart h3 {
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+}
+
+/* Grid layout for steps */
+.cart ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 20px;
+    padding: 0;
+}
+
+/* Individual*/
+.secct {
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    line-height: 1.6;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.secct:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+.flip-step {
+    perspective: 800px;
+    display: block;
+}
+
+/* Inner wrapper for flipping */
+.flip-step-inner {
+    position: relative;
+    width: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    height: 13rem;
+}
+
+/* Flip on hover */
+.flip-step:hover .flip-step-inner {
+    transform: rotateY(180deg);
+}
+
+/* FRONT */
+.flip-step-front {
+    position: relative;
+    width: 100%;
+    backface-visibility: hidden;
+    z-index: 2;
+    background: linear-gradient(to bottom right, #e0f7e0, #ffffff);
+    border-left: 5px solid #39c148;
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.flip-step:hover .flip-step-front {
+    box-shadow: 0 12px 25px rgba(57,193,72,0.5);
+    transform: scale(1.03);
+}
+
+/* BACK */
+.flip-step-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+    z-index: 1;
+    overflow: hidden;
+}
+
+/* Make image cover full card */
+.flip-step-back img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 10px;
+    border: 3px solid #f9d067;
+}
+
+
+/* FOOTER */
+.footer {
+    background: #282828;
+    color: #fff;
+    padding: 50px 20px;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 40px;
+    text-align: center;
+}
+
+.footer-logo img {
+    width: 130px;
+}
+
+.footer-logo p {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* Footer links */
+.footer-links h3,
+.footer-contact h3 {
+    margin-bottom: 10px;
+    color: #76c043;
+}
+
+.footer-links a {
+    display: block;
+    margin: 6px 0;
+    color: #ccc;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: #76c043;
+}
+
+/* Contact */
+.footer-contact p {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.footer-contact i {
+    margin-right: 5px;
+    color: #76c043;
+}
+
+/* Social icons */
+.footer-social a {
+    margin: 0 8px;
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.footer-social a:hover {
+    color: #76c043;
+}
+
+/* Bottom info */
+.footer-bottom {
+    border-top: 1px solid #939191;
+    margin-top: 30px;
+    padding-top: 15px;
+    font-size: 13px;
+    opacity: 0.7;
+    padding-left: 400px;
+}
+
+.social-media {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-left: 150px;
+    margin-top: 12px;
+}
+
+.social-media a:hover {
+    color: rgb(249, 208, 103);
+}
+
+.social-media a {
+    color: #fff;
+    font-size: 1.2rem;
+}

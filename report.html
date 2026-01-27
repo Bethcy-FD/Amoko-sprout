@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report an Issue | Amoko's Sprout</title>
+    <link rel="stylesheet" href="report.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+</head>
+
+<body>
+
+    <nav>
+        <div class="bg">
+
+            <img src="/img/amokologo.png" alt="logo">
+
+            <div class="bottomnav">
+                <ul>
+                    <li><a href="main.html">Home</a></li>
+
+                    <div class="dropdown">
+                        <li class="dropbtn">About <i class="fa-solid fa-caret-down"></i></a></li>
+                        <div class="dropdown-content">
+                            <a href="aboutus.html">About Us</a>
+                            <a href="tips.html">Weed Control</a>
+                        </div>
+                    </div>
+
+                    <div class="dropdown">
+                        <li><a href="market.html">E-Market</a></li>
+                    </div>
+
+                    <div class="dropdown">
+                        <li class="dropbtn">How To <i class="fa-solid fa-caret-down"></i></a></li>
+                        <div class="dropdown-content">
+                            <a href="fufu.html">Cassava - Fufu</a>
+                            <a href="garri.html">Cassva - Garri</a>
+                            <a href="chips.html">Cassva - Chips</a>
+                            <a href="lafun.html">Cassava - Lafun</a>
+                            <a href="tapi.html">Cassva - Tapioca</a>
+                        </div>
+                    </div>
+                    <li><a href="gallery.html">Gallery</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Fun report section -->
+    <section class="report-container">
+        <div class="report-header">
+            <h1><i class="fa-solid fa-seedling"></i> Farm Support Desk</h1>
+            <p>Describe the issue you're facing. Our agricultural experts will review it and get back to you.</p>
+        </div>
+
+        <form class="report-form" action="#" method="POST">
+            <div class="form-group">
+                <label>Your Name</label>
+                <input type="text" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-group">
+                <label>Phone Number (WhatsApp preferred)</label>
+                <input type="tel" placeholder="e.g. +234..." required>
+            </div>
+
+            <div class="form-group">
+                <label>What is the issue?</label>
+                <select required>
+                    <option value="">Select an issue type</option>
+                    <option value="pests">Pest Infestation (Insects/Bugs)</option>
+                    <option value="disease">Leaf/Root Disease</option>
+                    <option value="weeds">Heavy Weed Growth</option>
+                    <option value="soil">Soil/Nutrient Problems</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Urgency Level</label>
+                <div class="urgency-options">
+                    <label class="radio-label"><input type="radio" name="urgency" value="low"> Normal</label>
+                    <label class="radio-label"><input type="radio" name="urgency" value="high"> Urgent (Crop Loss
+                        Risk)</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Describe the Problem</label>
+                <textarea rows="5" placeholder="Tell us more about what you're seeing on your farm..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Upload Photo of the Problem (Optional)</label>
+                <input type="file" accept="image/*">
+            </div>
+
+            <button type="submit" class="submit-report">Submit Report</button>
+            <a href="main.html" class="back-link">Return to Home</a>
+        </form>
+    </section>
+
+    <footer>
+        <!-- your footer code here -->
+    </footer>
+
+    <script>
+        document.getElementById('reportForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert("✅ Thanks! Your issue has been reported.");
+            this.reset();
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const reportForm = document.querySelector('.report-form');
+            const submitBtn = document.querySelector('.submit-report');
+
+            if (reportForm) {
+                reportForm.addEventListener('submit', function (e) {
+                    e.preventDefault(); // Prevents the page from refreshing
+
+                    // 1. Get the farmer's name for a personalized message
+                    const name = this.querySelector('input[type="text"]').value;
+
+                    // 2. Visual Feedback: Change button to "Loading"
+                    const originalText = submitBtn.innerHTML;
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+                    submitBtn.style.opacity = "0.7";
+
+                    // 3. Simulate "Problem Solving" (Fake delay to look like it's processing)
+                    setTimeout(() => {
+                        // Success State
+                        submitBtn.style.backgroundColor = "#27ae60";
+                        submitBtn.innerHTML = '✅ Report Sent!';
+
+                        // Show a proper greeting alert
+                        alert(`Hello ${name}! Amoko's Sprout has received your report. An expert will reach out to you via WhatsApp shortly.`);
+
+                        // 4. Reset the form
+                        reportForm.reset();
+
+                        // 5. Reset button back to normal after 3 seconds
+                        setTimeout(() => {
+                            submitBtn.disabled = false;
+                            submitBtn.innerHTML = originalText;
+                            submitBtn.style.opacity = "1";
+                            submitBtn.style.backgroundColor = "#39c148";
+                        }, 3000);
+
+                    }, 2000); // 2 seconds delay
+                });
+            }
+        });
+
+    </script>
+
+
+
+</body>
+
+</html>

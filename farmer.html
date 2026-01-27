@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmer's Portal | Amoko's Sprout</title>
+    <link rel="stylesheet" href="farmer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav>
+        <div class="bg">
+            <img src="img/amokologo.png" alt="logo">
+            <div class="bottomnav">
+                <ul>
+                    <li><a href="main.html">Home</a></li>
+                    <li><a href="aboutus.html">About</a></li>
+                    <li><a href="market.html">E-Market</a></li>
+                    <li><a href="farmer.html">Farmer's Portal</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="portal-container">
+        <div class="portal-header">
+            <h1>Farmer's Registration Portal</h1>
+            <p>Register your farm to access wider markets and professional processing advice.</p>
+        </div>
+
+        <div class="portal-content">
+            <div class="info-card">
+                <h3>Why Partner With Us?</h3>
+                <div class="benefit">
+                    <strong>📈 Market Access</strong>
+                    <p>Reach customers beyond your local village or town.</p>
+                </div>
+                <div class="benefit">
+                    <strong>📦 Branding</strong>
+                    <p>We help you package your Garri, Lafun, and Chips professionally.</p>
+                </div>
+                <div class="benefit">
+                    <strong>🌱 Expert Advice</strong>
+                    <p>Get tips on soil health and weed management to boost your yield.</p>
+                </div>
+            </div>
+
+            <div class="form-card">
+                <div id="registration-area">
+                    <form id="farmerApply">
+                        <div class="input-group">
+                            <label>Farm Name</label>
+                            <input type="text" id="farmName" placeholder="Enter farm name" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Location</label>
+                            <input type="text" placeholder="State/Town" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Main Product</label>
+                            <select>
+                                <option>White Garri</option>
+                                <option>Yellow Garri</option>
+                                <option>Cassava Chips</option>
+                                <option>Lafun / Flour</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="idUpload"><i class="fa-solid fa-id-card"></i> Upload Government ID (National ID,
+                                Voter's Card)</label>
+                            <input type="file" id="idUpload" name="idUpload" accept="image/*, .pdf" required>
+                            <small style="color: #666;">Provide a clear photo or PDF of your identification.</small>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="landDoc"><i class="fa-solid fa-file-contract"></i> Upload Land Ownership
+                                Document</label>
+                            <input type="file" id="landDoc" name="landDoc" accept="image/*, .pdf" required>
+                            <small style="color: #666;">This helps verify the legitimacy of your farm produce.</small>
+                        </div>
+
+                        <div class="input-group">
+                            <label>About your Farm</label>
+                            <textarea placeholder="Tell us about your production capacity..."></textarea>
+                        </div>
+                        <button type="submit" class="apply-btn">Submit Application</button>
+                    </form>
+                </div>
+
+                <div id="success-message" style="display: none; text-align: center;">
+                    <i class="fa-solid fa-circle-check"
+                        style="font-size: 60px; color: #39c148; margin-bottom: 20px;"></i>
+                    <h2 style="color: #1b5e20;">Welcome to the Family!</h2>
+                    <p style="color: #444; margin: 15px 0;">Thank you, <span id="displayFarmName"></span>. Your
+                        application is being processed.</p>
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                        <a href="dashboard.html" class="apply-btn" style="text-decoration: none;">Enter Farmer
+                            Dashboard</a>
+                        <a href="main.html" style="color: #39c148; text-decoration: none; font-weight: 600;">Back to
+                            Home</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('farmerApply').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // 1. Get the actual TEXT (value) from the input
+            const farmNameInput = document.getElementById('farmName').value;
+
+            // 2. Save it to the browser's memory
+            localStorage.setItem('farmerName', farmNameInput);
+
+            // 3. Show the success message
+            document.getElementById('registration-area').style.display = 'none';
+            document.getElementById('success-message').style.display = 'block';
+
+            // 4. Update the name on the success screen immediately
+            document.getElementById('displayFarmName').innerText = farmNameInput;
+        });
+
+        // verification
+        const idInput = document.getElementById('idUpload');
+        const landInput = document.getElementById('landDoc');
+
+        idInput.addEventListener('change', function () {
+            if (this.files && this.files[0]) {
+                console.log("File detected:", this.files[0].name);
+                alert("ID Document Captured: " + this.files[0].name);
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>
